@@ -33,7 +33,7 @@ inputs:
     description: "Cypher statement(s) that will be run on each item returned. Passed to apoc.periodic.iterate function."
     required: false
     default: ""
-  apoc-iterate-batch-size:
+  apoc-iterate-batchSize:
     description: "The batch size to be passed to apoc.periodic.iterate function."
     required: false
     default: 50

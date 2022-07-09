@@ -11,7 +11,7 @@ const CYPHER_QUERY = core.getInput("cypher-query");
 const CYPHER_RUN_METHOD = core.getInput("cypher-run-method");
 const APOC_ITERATE_CYPHER_ITERATE = core.getInput("apoc-iterate-cypherIterate");
 const APOC_ITERATE_CYPHER_ACTION = core.getInput("apoc-iterate-cypherAction");
-const APOC_ITERATE_BATCH_SIZE = core.getInput("apoc-iterate-batch-size");
+const APOC_ITERATE_BATCH_SIZE = core.getInput("apoc-iterate-batchSize");
 
 const driver = neo4j.driver(
   NEO4J_URI,
