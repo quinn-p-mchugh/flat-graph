@@ -20,19 +20,16 @@ inputs:
   cypher-query:
     description: "The Cypher query to run. Your JSON file will be passed in a variable $value"
     required: false
-    default: ""
   cypher-run-method:
     description: "The function to use to run your cypher query. Valid options: 'tx.run', 'apoc.periodic.iterate'"
     required: true
-    default: "tx.run"
+    default: tx.run
   apoc-iterate-cypherIterate:
     description: "Cypher statement(s) corresponding to items to be returned. Passed to apoc.periodic.iterate function."
     required: false
-    default: ""
   apoc-iterate-cypherAction:
     description: "Cypher statement(s) that will be run on each item returned. Passed to apoc.periodic.iterate function."
     required: false
-    default: ""
   apoc-iterate-batchSize:
     description: "The batch size to be passed to apoc.periodic.iterate function."
     required: false
