@@ -45299,10 +45299,10 @@ NOTE: exports in this module should have exactly the same names/structure as exp
         switch (CYPHER_RUN_METHOD) {
           case "apoc.periodic.iterate": {
             let query = `CALL apoc.periodic.iterate(
-          '${APOC_ITERATE_CYPHER_ITERATE}',
-          '${APOC_ITERATE_CYPHER_ACTION}',
-          {batchSize: $batchSize, parallel: false, params: {value: $value}}
-          )`;
+            '${APOC_ITERATE_CYPHER_ITERATE}',
+            '${APOC_ITERATE_CYPHER_ACTION}',
+            {batchSize: $batchSize, parallel: false, params: {value: $value}}
+            )`;
             const tx = session.beginTransaction();
             const result = await tx.run(query, {
               value: jsonData,
@@ -45310,12 +45310,17 @@ NOTE: exports in this module should have exactly the same names/structure as exp
             });
             result.records.forEach((record) => console.log(record));
             await tx.commit();
+            break;
           }
           case "tx.run": {
             const tx = session.beginTransaction();
             const result = await tx.run(CYPHER_QUERY, { value: jsonData });
             result.records.forEach((record) => console.log(record));
             await tx.commit();
+            break;
+          }
+          default: {
+            throw new Error("Invalid value for 'cypher-run-method'");
           }
         }
       } catch (error) {
