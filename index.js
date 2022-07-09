@@ -37,12 +37,17 @@ const loadData = async () => {
         });
         result.records.forEach((record) => console.log(record));
         await tx.commit();
+        break;
       }
       case "tx.run": {
         const tx = session.beginTransaction();
         const result = await tx.run(CYPHER_QUERY, { value: jsonData });
         result.records.forEach((record) => console.log(record));
         await tx.commit();
+        break;
+      }
+      default: {
+        throw new Error("Invalid value for 'cypher-run-method'");
       }
     }
   } catch (error) {
