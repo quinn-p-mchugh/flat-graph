@@ -3,7 +3,7 @@ const github = require("@actions/github");
 const fs = require("fs");
 const neo4j = require("neo4j-driver");
 
-const NEO4J_URI = core.getInput("neo4j-uri");
+const NEO4J_URI = core.getInput("neo4j-uri").replace("neo4j+s", "bolt+s");
 const NEO4J_USER = core.getInput("neo4j-user");
 const NEO4J_PASSWORD = core.getInput("neo4j-password");
 const FILENAME = core.getInput("filename");

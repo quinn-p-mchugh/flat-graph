@@ -38158,7 +38158,7 @@ const github = __nccwpck_require__(8408);
 const fs = __nccwpck_require__(7147);
 const neo4j = __nccwpck_require__(2863);
 
-const NEO4J_URI = core.getInput("neo4j-uri");
+const NEO4J_URI = core.getInput("neo4j-uri").replace("neo4j+s", "bolt+s");
 const NEO4J_USER = core.getInput("neo4j-user");
 const NEO4J_PASSWORD = core.getInput("neo4j-password");
 const FILENAME = core.getInput("filename");
