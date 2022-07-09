@@ -45325,6 +45325,8 @@ NOTE: exports in this module should have exactly the same names/structure as exp
         await driver.close();
       }
     };
+
+    loadData();
   })();
 
   module.exports = __webpack_exports__;
