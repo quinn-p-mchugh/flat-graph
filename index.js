@@ -30,13 +30,12 @@ const loadData = async () => {
           '${APOC_ITERATE_CYPHER_ACTION}',
           {batchSize: $batchSize, parallel: false, params: {value: $value}}
           )`;
-        const tx = session.beginTransaction();
-        const result = await tx.run(query, {
-          value: jsonData,
-          batchSize: APOC_ITERATE_BATCH_SIZE,
-        });
-        result.records.forEach((record) => console.log(record));
-        await tx.commit();
+        await session.writeTransaction((tx) =>
+          tx.run(query, {
+            value: jsonData,
+            batchSize: APOC_ITERATE_BATCH_SIZE,
+          })
+        );
         break;
       }
       case "tx.run": {
